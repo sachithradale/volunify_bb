@@ -3,12 +3,14 @@ import 'package:volunify_bb/pages/applicationView.dart';
 import 'package:volunify_bb/pages/applications.dart';
 import 'package:volunify_bb/pages/createEvent.dart';
 import 'package:volunify_bb/components/home/EventDataList.dart';
+import 'package:volunify_bb/pages/exploreVol.dart';
 import 'package:volunify_bb/pages/homeVol.dart';
 import 'package:volunify_bb/pages/login.dart';
 import 'package:volunify_bb/pages/register.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:volunify_bb/pages/createEvent.dart';
 import 'package:volunify_bb/pages/home.dart';
+import 'package:volunify_bb/pages/wrapper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,12 +32,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => LoginPage(),
+        '/': (context) => ExploreVol(),
         '/login':(context)=> LoginPage(),
         '/register': (context) => Register(),
         '/home': (context) => Home(),
+        '/homeVol': (context) => HomeVolunteer(),
         '/createEvent': (context) => CreateEvent(),
         '/applications': (context) => Applications(),
+        '/exploreVol': (context) => ExploreVol(),
       }
     );
   }

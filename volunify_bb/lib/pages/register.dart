@@ -55,7 +55,7 @@ class _RegisterState extends State<Register> {
 
   
     if (response.session != null) {
-        Navigator.pushNamed(context, '/base');
+        Navigator.pushNamed(context, '/login');
     } else {
       showDialog(
         context: context,
