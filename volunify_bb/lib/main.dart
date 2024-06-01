@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:volunify_bb/pages/login.dart';
 import 'package:volunify_bb/pages/register.dart';
+import 'package:volunify_bb/pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => LoginPage(),
         '/login':(context)=> LoginPage(),
         '/register': (context) => Register(),
+        '/home': (context) => Home(),
       }
     );
   }

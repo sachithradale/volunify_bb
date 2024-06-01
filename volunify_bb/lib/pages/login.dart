@@ -16,69 +16,74 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Future<void> _login() async {
-    final String email = emailController.text.trim();
-    final String password = passwordController.text.trim();
+  // Future<void> _login() async {
+  //   final String email = emailController.text.trim();
+  //   final String password = passwordController.text.trim();
+  //
+  //   final Uri url = Uri.parse('https://madbackend-production.up.railway.app/api/auth/signin');
+  //   final response = await http.post(
+  //     url,
+  //     body: {
+  //       'email': email,
+  //       'password': password,
+  //     },
+  //   );
+  //
+  //   if (response.statusCode == 200) {
+  //     // Login successful
+  //     final responseData = json.decode(response.body);
+  //
+  //     var userRole = responseData['data']['role'];
+  //     print("User Role: $userRole");
+  //     var token= responseData['data']['token'];
+  //     print("Token: $token");
+  //     var userId=responseData['data']['id'];
+  //
+  //     // Save token to shared preferences
+  //     final Map<dynamic, dynamic> user = responseData['data'];
+  //
+  //     final prefs = await SharedPreferences.getInstance();
+  //     prefs.setString('token', token);
+  //     prefs.setString('userRole',userRole);
+  //     prefs.setString('user', json.encode(user));
+  //     prefs.setString('id', userId);
+  //
+  //     emailController.clear();
+  //     passwordController.clear();
+  //
+  //     if(userRole == 'employer') {
+  //       Navigator.pushNamed(context, '/employerHome');
+  //     } else {
+  //       Navigator.pushNamed(context, '/jonApplicantHome');
+  //     }
+  //   } else {
+  //     // Login failed
+  //     showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: Text(
+  //               'Error',
+  //               style: TextStyle(
+  //                   color: Colors.red
+  //               )
+  //           ),
+  //           content: Text("Username and password does not match"),
+  //           actions: [
+  //             TextButton(
+  //               onPressed: () => Navigator.pop(context),
+  //               child: Text('OK'),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 
-    final Uri url = Uri.parse('https://madbackend-production.up.railway.app/api/auth/signin');
-    final response = await http.post(
-      url,
-      body: {
-        'email': email,
-        'password': password,
-      },
-    );
-
-    if (response.statusCode == 200) {
-      // Login successful
-      final responseData = json.decode(response.body);
-
-      var userRole = responseData['data']['role'];
-      print("User Role: $userRole");
-      var token= responseData['data']['token'];
-      print("Token: $token");
-      var userId=responseData['data']['id'];
-
-      // Save token to shared preferences
-      final Map<dynamic, dynamic> user = responseData['data'];
-
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString('token', token);
-      prefs.setString('userRole',userRole);
-      prefs.setString('user', json.encode(user));
-      prefs.setString('id', userId);
-
-      emailController.clear();
-      passwordController.clear();
-
-      if(userRole == 'employer') {
-        Navigator.pushNamed(context, '/employerHome');
-      } else {
-        Navigator.pushNamed(context, '/jonApplicantHome');
-      }
-    } else {
-      // Login failed
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-                'Error',
-                style: TextStyle(
-                    color: Colors.red
-                )
-            ),
-            content: Text("Username and password does not match"),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    }
+  Future<void> _login() async{
+    //navigate to home page
+    Navigator.pushNamed(context, '/home');
   }
 
   @override
