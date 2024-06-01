@@ -13,9 +13,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Supabase.initialize(
-    url: 'https://epyifmpezkyiwkcdgade.supabase.co',
+    url: 'https://auslmepkwawokgoycsjx.supabase.co',
     anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVweWlmbXBlemt5aXdrY2RnYWRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTcyMzQ3MzcsImV4cCI6MjAzMjgxMDczN30.HrrLLYmA5fmJAToL9PiqLfWZdMhfWI7smD2P4fgjVIM',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1c2xtZXBrd2F3b2tnb3ljc2p4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTcyODAzNjAsImV4cCI6MjAzMjg1NjM2MH0.7Okimzclb6eLvZvOUfKZA_MlV0D_OI5pRw5kJjZDeYU',
   );
   runApp(const MyApp());
 }
@@ -28,12 +28,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(routes: {
-      '/': (context) => const EventPage(),
+      '/': (context) => const Wrapper(),
       '/login': (context) => LoginPage(),
       '/register': (context) => Register(),
       '/volhome': (context) => HomeVolunteer(),
       '/home': (context) => Home(),
       '/createEvent': (context) => CreateEvent(),
+      '/EventPage': (context) => EventPage(),
     });
   }
 }

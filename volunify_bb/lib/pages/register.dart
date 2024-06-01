@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:volunify_bb/main.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:volunify_bb/pages/common/buttons.dart';
 import 'package:volunify_bb/pages/common/colors.dart';
 import 'package:volunify_bb/pages/common/fonts.dart';
 import 'package:volunify_bb/pages/common/textField.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-
-
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -22,14 +19,13 @@ class _RegisterState extends State<Register> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   Future<void> _register() async {
-    final String role = nameController.text.trim();
+    final String name = nameController.text.trim();
     final String email = emailController.text.trim();
     final String password = passwordController.text.trim();
     final String confirmPassword = confirmPasswordController.text.trim();
 
     // Check if passwords match
     if (password != confirmPassword) {
-
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -48,15 +44,13 @@ class _RegisterState extends State<Register> {
       return;
     }
 
-    final AuthResponse response = await supabase.auth.signUp(
-                  email: email,
-                  password: password
-                );
+    final AuthResponse response = await Supabase.instance.client.auth.signUp(
+      email: email,
+      password: password,
+    );
 
-  
-    if (response.session != null) {
-        Navigator.pushNamed(context, '/base');
-    } else {
+    if (response == null) {
+      // Show error message
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -72,6 +66,9 @@ class _RegisterState extends State<Register> {
           );
         },
       );
+    } else {
+      // Successful registration
+      Navigator.pushNamed(context, '/login');
     }
   }
 
@@ -84,42 +81,48 @@ class _RegisterState extends State<Register> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppFonts.heading('Create an Account', AppColor.primaryColor),
-              SizedBox(height: 40,),
+              SizedBox(height: 40),
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: TextFields.textField('Name of the Organization', Icons.person, false, nameController),
+                child: TextFields.textField('Name of the Organization',
+                    Icons.person, false, nameController),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: TextFields.textField('Email', Icons.email, false, emailController),
+                child: TextFields.textField(
+                    'Email', Icons.email, false, emailController),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: TextFields.textField('Password', Icons.lock, true, passwordController),
+                child: TextFields.textField(
+                    'Password', Icons.lock, true, passwordController),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: TextFields.textField('Confirm Password', Icons.lock, true, confirmPasswordController),
+                child: TextFields.textField('Confirm Password', Icons.lock,
+                    true, confirmPasswordController),
               ),
-              SizedBox(height: 20,),
-              Button.formButtton('Sign Up', _register, MediaQuery.of(context).size.width * 0.8),
-              SizedBox(height: 10,),
+              SizedBox(height: 20),
+              Button.formButtton('Sign Up', _register,
+                  MediaQuery.of(context).size.width * 0.8),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppFonts.customizeText('Already a Member?', AppColor.textColor, 12, FontWeight.normal),
+                  AppFonts.customizeText('Already a Member?',
+                      AppColor.textColor, 12, FontWeight.normal),
                   Button.textButton(
                     'Login',
-                        () {
+                    () {
                       Navigator.pushNamed(context, '/login');
                     },
                     12,
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
