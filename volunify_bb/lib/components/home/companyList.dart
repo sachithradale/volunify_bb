@@ -42,7 +42,7 @@ class CompanyList extends StatefulWidget {
 class _CompanyListState extends State<CompanyList> {
   final _orgStream = Supabase.instance.client
       .from('organization')
-      .select('user_id,name')
+      .select('name')
       .asStream(); // Ensure `supabase` is correctly configured
 
   @override

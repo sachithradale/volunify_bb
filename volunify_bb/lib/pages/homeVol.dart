@@ -15,11 +15,10 @@ class HomeVolunteer extends StatelessWidget {
           addAutomaticKeepAlives: false,
           children: [
             Container(
-              color: Colors.blue,
               width: 500,
               height: 100,
             ),
-            Container(width: 500, height: 250, child: const EventListHorizontal()),
+            //Container(width: 500, height: 250, child: const EventListHorizontal()),
             Container(child: const CompanyList())
           ],
         ));
