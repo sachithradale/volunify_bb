@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:volunify_bb/main.dart';
 import 'package:volunify_bb/pages/common/buttons.dart';
 import 'package:volunify_bb/pages/common/colors.dart';
 import 'package:volunify_bb/pages/common/fonts.dart';
@@ -20,41 +18,18 @@ class _LoginPageState extends State<LoginPage> {
     final String email = emailController.text.trim();
     final String password = passwordController.text.trim();
 
-    final Uri url = Uri.parse('https://madbackend-production.up.railway.app/api/auth/signin');
-    final response = await http.post(
-      url,
-      body: {
-        'email': email,
-        'password': password,
-      },
-    );
+    final response = await supabase.auth.signInWithPassword(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
 
-    if (response.statusCode == 200) {
+    if (response.user != null) {
       // Login successful
-      final responseData = json.decode(response.body);
-
-      var userRole = responseData['data']['role'];
-      print("User Role: $userRole");
-      var token= responseData['data']['token'];
-      print("Token: $token");
-      var userId=responseData['data']['id'];
-
-      // Save token to shared preferences
-      final Map<dynamic, dynamic> user = responseData['data'];
-
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString('token', token);
-      prefs.setString('userRole',userRole);
-      prefs.setString('user', json.encode(user));
-      prefs.setString('id', userId);
-
-      emailController.clear();
-      passwordController.clear();
-
-      if(userRole == 'employer') {
-        Navigator.pushNamed(context, '/employerHome');
+    
+      if(response.user?.role == 'volunteer') {
+        Navigator.pushNamed(context, '/volHome');
       } else {
-        Navigator.pushNamed(context, '/jonApplicantHome');
+        Navigator.pushNamed(context, '/orgHome');
       }
     } else {
       // Login failed
