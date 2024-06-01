@@ -1,11 +1,11 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:volunify_bb/main.dart';
 import 'package:volunify_bb/pages/common/buttons.dart';
 import 'package:volunify_bb/pages/common/colors.dart';
 import 'package:volunify_bb/pages/common/fonts.dart';
 import 'package:volunify_bb/pages/common/textField.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 
 
 class Register extends StatefulWidget {
@@ -22,13 +22,14 @@ class _RegisterState extends State<Register> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   Future<void> _register() async {
-    final String name = nameController.text.trim();
+    final String role = nameController.text.trim();
     final String email = emailController.text.trim();
     final String password = passwordController.text.trim();
     final String confirmPassword = confirmPasswordController.text.trim();
 
     // Check if passwords match
     if (password != confirmPassword) {
+
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -47,32 +48,21 @@ class _RegisterState extends State<Register> {
       return;
     }
 
-    final Uri url = Uri.parse('https://madbackend-production.up.railway.app/api/auth/signup');
-    final response = await http.post(
-      url,
-      body: {
-        'name': name,
-        'email': email,
-        'password': password,
-      },
-    );
+    final AuthResponse response = await supabase.auth.signUp(
+                  email: email,
+                  password: password
+                );
 
-    if (response.statusCode == 200) {
-      final responseData = json.decode(response.body);
-
-      final Map<dynamic, dynamic> user = responseData['data'];
-
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString('user', json.encode(user));
-
-      Navigator.pushNamed(context, '/base');
+  
+    if (response.session != null) {
+        Navigator.pushNamed(context, '/base');
     } else {
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Error'),
-            content: Text('Registration failed: ${jsonDecode(response.body)['message']}'),
+            content: Text('Registration error: '),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
