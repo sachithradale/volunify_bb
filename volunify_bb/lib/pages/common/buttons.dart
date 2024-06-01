@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
+class BackgroundImage extends StatelessWidget {
+  final Widget child;
+
+  const BackgroundImage({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/background.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: child,
+    );
+  }
+}
+
 class Button{
   //button style for the primary button
   static ElevatedButton primaryButton(String text, Function() onPressed) {
