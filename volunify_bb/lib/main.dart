@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:volunify_bb/pages/applicationView.dart';
+import 'package:volunify_bb/pages/applications.dart';
+import 'package:volunify_bb/pages/createEvent.dart';
 import 'package:volunify_bb/components/home/EventDataList.dart';
 import 'package:volunify_bb/pages/homeVol.dart';
 import 'package:volunify_bb/pages/login.dart';
@@ -25,13 +28,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(routes: {
-      '/': (context) => const HomeVolunteer(),
-      '/login': (context) => LoginPage(),
-      '/register': (context) => Register(),
-      '/volhome': (context) => HomeVolunteer(),
-      '/home': (context) => Home(),
-      '/createEvent': (context) => CreateEvent(),
-    });
+    return MaterialApp(
+      routes: {
+        '/': (context) => LoginPage(),
+        '/login':(context)=> LoginPage(),
+        '/register': (context) => Register(),
+        '/home': (context) => Home(),
+        '/createEvent': (context) => CreateEvent(),
+        '/applications': (context) => Applications(),
+      }
+    );
   }
 }
