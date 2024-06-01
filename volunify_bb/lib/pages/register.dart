@@ -16,10 +16,15 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final List<String> _roles = [
+    'Organization',
+    'Volunteer',
+  ];
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+  String? _selectedRole;
 
   Future<void> _register() async {
     final String role = nameController.text.trim();
@@ -103,6 +108,30 @@ class _RegisterState extends State<Register> {
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: TextFields.textField('Confirm Password', Icons.lock, true, confirmPasswordController),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: DropdownButtonFormField<String>(
+                  value: _selectedRole,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      _selectedRole = newValue;
+                    });
+                  },
+                  items: _roles.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  decoration: InputDecoration(
+                    labelText: 'Role',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
               ),
               SizedBox(height: 20,),
               Button.formButtton('Sign Up', _register, MediaQuery.of(context).size.width * 0.8),

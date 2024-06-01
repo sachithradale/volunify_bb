@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Montserrat',
         ),
       routes: {
-        '/': (context) => ExploreVol(),
+        '/': (context) => LoginPage(),
         '/login':(context)=> LoginPage(),
         '/register': (context) => Register(),
         '/home': (context) => Home(),

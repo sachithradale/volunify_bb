@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../components/home/EventDataListHorizontal.dart';
 import 'common/fonts.dart';
 import 'common/header.dart';
 
@@ -127,7 +128,7 @@ class _HomeState extends State<Home> {
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (context, index){
-                        return Container(child:Text('d'));
+                        return EventListHorizontal();
                       },
                     ),
                   ),

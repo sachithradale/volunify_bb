@@ -65,6 +65,10 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  void _loginHandler() {
+    Navigator.pushNamed(context, '/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 20),
               Button.formButtton(
                 'Login',
-                _login,
+                _loginHandler,
                 MediaQuery.of(context).size.width * 0.8,
               ),
               SizedBox(height: 10),
