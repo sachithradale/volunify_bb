@@ -4,8 +4,15 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_linux
+<<<<<<< HEAD
   gtk
   url_launcher_linux
+=======
+
+  gtk
+  url_launcher_linux
+
+>>>>>>> b97cc275a51884c1a7e88e6643247b9015af0bfd
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
