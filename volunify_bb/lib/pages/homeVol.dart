@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:volunify_bb/components/home/EventDataListHorizontal.dart';
+import 'package:volunify_bb/components/home/companyList.dart';
+import '../components/home/EventDataList.dart';
 
 class HomeVolunteer extends StatelessWidget {
   const HomeVolunteer({super.key});
@@ -16,16 +19,8 @@ class HomeVolunteer extends StatelessWidget {
               width: 500,
               height: 100,
             ),
-            Container(
-              color: Colors.red,
-              width: 500,
-              height: 500,
-            ),
-            Container(
-              color: Colors.orange,
-              width: 500,
-              height: 500,
-            )
+            Container(width: 500, height: 250, child: const EventListHorizontal()),
+            Container(child: const CompanyList())
           ],
         ));
   }

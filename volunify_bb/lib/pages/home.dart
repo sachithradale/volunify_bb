@@ -127,50 +127,7 @@ class _HomeState extends State<Home> {
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (context, index){
-                        return Card(
-                          child: Column(
-                           crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(''
-                                  'assets/images/placeholder.jpg',
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                height: MediaQuery.of(context).size.width * 0.3,
-                                fit: BoxFit.cover,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 2, 0, 0),
-                                child: Text(
-                                    'Wildlife projects',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold
-                                    )
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                                child: Text(
-                                    '12th December 2021',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.grey
-                                    )
-                                ),
-                              ),
-                              //no of days left
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                                child: Text(
-                                    '12 days left',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.red
-                                    )
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
+                        return Container(child:Text('d'));
                       },
                     ),
                   ),
@@ -183,3 +140,67 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+class EventCard extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String date;
+  final int daysLeft;
+
+  const EventCard({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+    required this.date,
+    required this.daysLeft,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            imageUrl,
+            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.of(context).size.width * 0.3,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 2, 0, 0),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+            child: Text(
+              date,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+            child: Text(
+              '$daysLeft days left',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+

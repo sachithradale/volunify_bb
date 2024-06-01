@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:volunify_bb/components/home/EventDataList.dart';
 import 'package:volunify_bb/pages/homeVol.dart';
 import 'package:volunify_bb/pages/login.dart';
 import 'package:volunify_bb/pages/register.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:volunify_bb/pages/createEvent.dart';
 import 'package:volunify_bb/pages/home.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,15 +25,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        '/': (context) => HomeVolunteer(),
-        '/login': (context) => LoginPage(),
-        '/register': (context) => Register(),
-        '/volhome': (context) => HomeVolunteer(),
-        '/home': (context) => Home(),
-        '/createEvent': (context) => CreateEvent(),
-      }
-    );
+    return MaterialApp(routes: {
+      '/': (context) => const HomeVolunteer(),
+      '/login': (context) => LoginPage(),
+      '/register': (context) => Register(),
+      '/volhome': (context) => HomeVolunteer(),
+      '/home': (context) => Home(),
+      '/createEvent': (context) => CreateEvent(),
+    });
   }
 }
