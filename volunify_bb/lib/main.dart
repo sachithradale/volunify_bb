@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:volunify_bb/pages/applicationView.dart';
+import 'package:volunify_bb/pages/applications.dart';
 import 'package:volunify_bb/pages/createEvent.dart';
 import 'package:volunify_bb/pages/login.dart';
 import 'package:volunify_bb/pages/register.dart';
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => Register(),
         '/home': (context) => Home(),
         '/createEvent': (context) => CreateEvent(),
+        '/applications': (context) => Applications(),
       }
     );
   }
