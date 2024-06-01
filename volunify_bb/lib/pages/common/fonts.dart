@@ -7,7 +7,7 @@ class AppFonts {
     return Text(
       text,
       style: TextStyle(
-        fontFamily: primaryFontFamily,
+        fontFamily: 'Montserrat',
         fontSize: 30.0,
         fontWeight: FontWeight.bold,
         color: color??Colors.black,
@@ -19,7 +19,7 @@ class AppFonts {
     return Text(
       text,
       style: TextStyle(
-        fontFamily: primaryFontFamily,
+        fontFamily: 'Montserrat',
         fontSize: 30.0,
         fontWeight: FontWeight.bold,
         color: color??Colors.black,
@@ -32,7 +32,7 @@ class AppFonts {
     return Text(
       text,
       style: TextStyle(
-        fontFamily: primaryFontFamily,
+        fontFamily: 'Montserrat',
         fontSize: 22.0,
         fontWeight: FontWeight.bold,
         color: color??Colors.black,
@@ -45,7 +45,7 @@ class AppFonts {
     return Text(
       text,
       style: TextStyle(
-        fontFamily: primaryFontFamily,
+        fontFamily: 'Montserrat',
         fontSize: 14.0,
         fontWeight: FontWeight.normal,
         color: color??Colors.black,
@@ -60,7 +60,7 @@ class AppFonts {
     return Text(
       text,
       style: TextStyle(
-        fontFamily: primaryFontFamily,
+        fontFamily: 'Montserrat',
         fontSize: size,
         fontWeight: weight,
         color: color??Colors.black,

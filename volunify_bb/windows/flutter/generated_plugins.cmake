@@ -3,8 +3,13 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+<<<<<<< HEAD
+  app_links
+  file_selector_windows
+=======
   file_selector_windows
   app_links
+>>>>>>> b97cc275a51884c1a7e88e6643247b9015af0bfd
   url_launcher_windows
 )
 

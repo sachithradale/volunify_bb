@@ -29,14 +29,26 @@ class CustomizedOrganizationDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
-            child: Text(
-              'Volunify',
-              style: TextStyle(
-                fontFamily: 'poppins',
-                color: Colors.white,
-                fontSize: 20,
-              ),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/placeholder.jpg'),
+                  radius: 30,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'Pasindu',
+                  style: TextStyle(
+                    fontFamily: 'poppins',
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
             ),
+            //Profile Picture and Name
+
+
           ),
           ListTile(
             title: AppFonts.normal('Home', Colors.black),
