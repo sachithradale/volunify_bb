@@ -19,6 +19,13 @@ class _HomeState extends State<Home> {
     return Scaffold(
       drawer: CustomizedOrganizationDrawer(),
       appBar: customizedAppBar(title: 'Home').header(context),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/createEvent');
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
+      ),
       body: Center(
         child: Column(
           children: <Widget>[
@@ -115,12 +122,14 @@ class _HomeState extends State<Home> {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     height: 200,
+                    width: double.infinity,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (context, index){
                         return Card(
                           child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(''
                                   'assets/images/placeholder.jpg',
@@ -128,15 +137,37 @@ class _HomeState extends State<Home> {
                                 height: MediaQuery.of(context).size.width * 0.3,
                                 fit: BoxFit.cover,
                               ),
-                              Text(
-                                  'Wildlife projects Enhancement',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold
-                                  )
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 2, 0, 0),
+                                child: Text(
+                                    'Wildlife projects',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold
+                                    )
+                                ),
                               ),
-                              Text('Date'),
-                              Text('Location'),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                child: Text(
+                                    '12th December 2021',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey
+                                    )
+                                ),
+                              ),
+                              //no of days left
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                child: Text(
+                                    '12 days left',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.red
+                                    )
+                                ),
+                              ),
                             ],
                           ),
                         );

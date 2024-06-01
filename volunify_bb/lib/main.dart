@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:volunify_bb/pages/createEvent.dart';
 import 'package:volunify_bb/pages/login.dart';
 import 'package:volunify_bb/pages/register.dart';
 import 'package:volunify_bb/pages/home.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/login':(context)=> LoginPage(),
         '/register': (context) => Register(),
         '/home': (context) => Home(),
+        '/createEvent': (context) => CreateEvent(),
       }
     );
   }
