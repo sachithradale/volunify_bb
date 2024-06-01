@@ -3,7 +3,9 @@ import 'package:volunify_bb/pages/homeVol.dart';
 import 'package:volunify_bb/pages/login.dart';
 import 'package:volunify_bb/pages/register.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:volunify_bb/pages/wrapper.dart';
+import 'package:volunify_bb/pages/createEvent.dart';
+import 'package:volunify_bb/pages/home.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +15,6 @@ void main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVweWlmbXBlemt5aXdrY2RnYWRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTcyMzQ3MzcsImV4cCI6MjAzMjgxMDczN30.HrrLLYmA5fmJAToL9PiqLfWZdMhfWI7smD2P4fgjVIM',
   );
-
   runApp(const MyApp());
 }
 
@@ -24,11 +25,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(routes: {
-      '/': (context) => HomeVolunteer(),
-      '/login': (context) => LoginPage(),
-      '/register': (context) => Register(),
-      '/volhome': (context) => HomeVolunteer(),
-    });
+    return MaterialApp(
+      routes: {
+        '/': (context) => HomeVolunteer(),
+        '/login': (context) => LoginPage(),
+        '/register': (context) => Register(),
+        '/volhome': (context) => HomeVolunteer(),
+        '/home': (context) => Home(),
+        '/createEvent': (context) => CreateEvent(),
+      }
+    );
   }
 }

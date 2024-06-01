@@ -33,8 +33,8 @@ class AppFonts {
       text,
       style: TextStyle(
         fontFamily: primaryFontFamily,
-        fontSize: 18.0,
-        fontWeight: FontWeight.normal,
+        fontSize: 22.0,
+        fontWeight: FontWeight.bold,
         color: color??Colors.black,
       ),
     );

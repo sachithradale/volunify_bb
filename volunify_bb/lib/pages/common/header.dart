@@ -17,7 +17,7 @@ class customizedAppBar{
   }
 }
 
-class CustomizedEmployeeDrawer extends StatelessWidget {
+class CustomizedOrganizationDrawer extends StatelessWidget {
   var token;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class CustomizedEmployeeDrawer extends StatelessWidget {
               color: Colors.blue,
             ),
             child: Text(
-              'SimplyHired',
+              'Volunify',
               style: TextStyle(
                 fontFamily: 'poppins',
                 color: Colors.white,
@@ -41,19 +41,37 @@ class CustomizedEmployeeDrawer extends StatelessWidget {
           ListTile(
             title: AppFonts.normal('Home', Colors.black),
             onTap: () {
-              Navigator.pushNamed(context, '/employerHome');
+              Navigator.pushNamed(context, '/home');
             },
           ),
           ListTile(
-            title: AppFonts.normal('Profile', Colors.black),
+            title: AppFonts.normal('Applications', Colors.black),
             onTap: () {
-               Navigator.pushNamed(context, '/profile');
+               Navigator.pushNamed(context, '/applications');
             },
           ),
           ListTile(
-            title: AppFonts.normal('Job Interests', Colors.black),
+            title: AppFonts.normal('Program', Colors.black),
             onTap: () {
-              Navigator.pushNamed(context, '/jobViews');
+              Navigator.pushNamed(context, '/program');
+            },
+          ),
+          ListTile(
+            title: AppFonts.normal('Volunteers', Colors.black),
+            onTap: () {
+              Navigator.pushNamed(context, '/volunteers');
+            },
+          ),
+          ListTile(
+            title: AppFonts.normal('Notifications', Colors.black),
+            onTap: () {
+              Navigator.pushNamed(context, '/notifications');
+            },
+          ),
+          ListTile(
+            title: AppFonts.normal('Chats', Colors.black),
+            onTap: () {
+              Navigator.pushNamed(context, '/chats');
             },
           ),
           ListTile(
