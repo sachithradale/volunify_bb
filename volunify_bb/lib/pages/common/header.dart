@@ -136,7 +136,7 @@ class CustomizedOrganizationDrawer extends StatelessWidget {
   }
 }
 
-class CustomizedAppplicantDrawer extends StatelessWidget {
+class VolunteerAppplicantDrawer extends StatelessWidget {
   var token;
   @override
   Widget build(BuildContext context) {
@@ -149,7 +149,7 @@ class CustomizedAppplicantDrawer extends StatelessWidget {
               color: Colors.blue,
             ),
             child: Text(
-              'SimplyHired',
+              '',
               style: TextStyle(
                 fontFamily: 'poppins',
                 color: Colors.white,
@@ -160,25 +160,31 @@ class CustomizedAppplicantDrawer extends StatelessWidget {
           ListTile(
             title: AppFonts.normal('Home', Colors.black),
             onTap: () {
-              Navigator.pushNamed(context, '/applicantHome');
+              Navigator.pushNamed(context, '/homeVol');
             },
           ),
           ListTile(
-            title: AppFonts.normal('Saved Jobs', Colors.black),
+            title: AppFonts.normal('Applications', Colors.black),
             onTap: () {
-              Navigator.pushNamed(context, '/savedJobs');
+              Navigator.pushNamed(context, '/applicationsVol');
             },
           ),
           ListTile(
-            title: AppFonts.normal('Profile', Colors.black),
+            title: AppFonts.normal('Events', Colors.black),
             onTap: () {
-               Navigator.pushNamed(context, '/profile');
+               Navigator.pushNamed(context, '/events');
             },
           ),
           ListTile(
-            title: AppFonts.normal('Applied Jobs', Colors.black),
+            title: AppFonts.normal('Notifications', Colors.black),
             onTap: () {
-              Navigator.pushNamed(context, '/appliedJobs');
+              Navigator.pushNamed(context, '/notifications');
+            },
+          ),
+          ListTile(
+            title: AppFonts.normal('Chats', Colors.black),
+            onTap: () {
+              Navigator.pushNamed(context, '/chats');
             },
           ),
           ListTile(
