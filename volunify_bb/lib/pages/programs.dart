@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'common/header.dart';
 
@@ -10,6 +11,10 @@ class Programs extends StatefulWidget {
 }
 
 class _ProgramsState extends State<Programs> {
+  final _orgStream = Supabase.instance.client
+      .from('project')
+      .select('name ,description,location,telephone')
+      .asStream();
   List<Map<String,Object>> projectDetails=[
     {
       'title':'Project 1',
@@ -63,6 +68,7 @@ class _ProgramsState extends State<Programs> {
 
   @override
   Widget build(BuildContext context) {
+    print(_orgStream);
     return Scaffold(
       drawer: CustomizedOrganizationDrawer(),
       appBar: customizedAppBar(title: 'Home').header(context),

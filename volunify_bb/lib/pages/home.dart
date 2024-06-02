@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../components/home/EventDataListHorizontal.dart';
+import '../components/home/companyList.dart';
 import 'common/fonts.dart';
 import 'common/header.dart';
 
@@ -132,87 +133,12 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(14.0),
                     child: AppFonts.subtitle('Organizations', Colors.black),
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              RawMaterialButton(
-                                onPressed: () {},
-                                fillColor: Colors.grey,
-                                shape: CircleBorder(),
-                                elevation: 4,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text('Organization 1', style: TextStyle(color: Colors.black),),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              RawMaterialButton(
-                                onPressed: () {},
-                                fillColor: Colors.grey,
-                                shape: CircleBorder(),
-                                elevation: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text('Organization 2', style: TextStyle(color: Colors.black),),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              RawMaterialButton(
-                                onPressed: () {},
-                                fillColor: Colors.grey,
-                                shape: CircleBorder(),
-                                elevation: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text('Organization 3', style: TextStyle(color: Colors.black),),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              RawMaterialButton(
-                                onPressed: () {},
-                                fillColor: Colors.grey,
-                                shape: CircleBorder(),
-                                elevation: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text('Organization 4', style: TextStyle(color: Colors.black),),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
+            ),
+            Container(
+              height: 200,
+                child:CompanyList()
             )
           ],
         ),

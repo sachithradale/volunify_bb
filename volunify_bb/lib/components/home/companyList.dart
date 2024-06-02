@@ -25,7 +25,7 @@ class CircularItem extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           label,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.black),
         ),
       ],
     );
@@ -47,7 +47,7 @@ class _CompanyListState extends State<CompanyList> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
       // Use Expanded to ensure the ListView.builder expands to fill the available space
       child: StreamBuilder<List<Map<String, dynamic>>>(
         stream: _orgStream,
@@ -56,6 +56,7 @@ class _CompanyListState extends State<CompanyList> {
             return const Center(child: CircularProgressIndicator());
           }
           final notes = snapshot.data!;
+          print(notes);
           return ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: notes.length,
