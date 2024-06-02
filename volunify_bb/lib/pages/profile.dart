@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'common/header.dart';
+
 class ProfilePage extends StatelessWidget {
   bool switch_value1 = false;
   bool switch_value2 = false;
@@ -7,9 +9,8 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-
-        ),
+        drawer: CustomizedOrganizationDrawer(),
+        appBar: customizedAppBar(title: 'Profile').header(context),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Column(
@@ -110,12 +111,6 @@ class ProfilePage extends StatelessWidget {
               _buildTextBlock('Feedbacks'),
               SizedBox(height: 20),
               // Logout Button
-              ElevatedButton(
-                onPressed: () {
-                  // Add logout functionality here
-                },
-                child: Text('Logout'),
-              ),
             ],
           ),
         ),

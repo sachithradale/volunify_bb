@@ -7,6 +7,7 @@ import 'package:volunify_bb/components/home/EventPage.dart';
 import 'package:volunify_bb/pages/exploreVol.dart';
 import 'package:volunify_bb/pages/homeVol.dart';
 import 'package:volunify_bb/pages/login.dart';
+import 'package:volunify_bb/pages/profile.dart';
 import 'package:volunify_bb/pages/programs.dart';
 import 'package:volunify_bb/pages/register.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         '/exploreVol': (context) => ExploreVol(),
          '/EventPage': (context) => EventPage(),
         '/program': (context) => Programs(),
+        '/profile': (context) => ProfilePage(),
     });
   }
 }

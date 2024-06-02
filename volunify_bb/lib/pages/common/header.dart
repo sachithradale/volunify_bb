@@ -47,8 +47,6 @@ class CustomizedOrganizationDrawer extends StatelessWidget {
               ],
             ),
             //Profile Picture and Name
-
-
           ),
           ListTile(
             title: AppFonts.normal('Home', Colors.black),
@@ -84,6 +82,12 @@ class CustomizedOrganizationDrawer extends StatelessWidget {
             title: AppFonts.normal('Chats', Colors.black),
             onTap: () {
               Navigator.pushNamed(context, '/chats');
+            },
+          ),
+          ListTile(
+            title: AppFonts.normal('Profile', Colors.black),
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
             },
           ),
           ListTile(
