@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../pages/common/header.dart';
+
 class EventPage extends StatelessWidget {
   const EventPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Event Page'),
-      ),
+      appBar: customizedAppBar(title: 'Event Page').header(context),
       body: Expanded(
         child: ListView(
           padding: EdgeInsets.all(16.0),

@@ -88,58 +88,9 @@ class CustomizedOrganizationDrawer extends StatelessWidget {
           ),
           ListTile(
             title: AppFonts.normal('Logout', Colors.red),
-            onTap: () async {
-              //clear shared preference
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              token = prefs.getString('token');
-              final Uri uri = Uri.parse('https://madbackend-production.up.railway.app/api/auth/signout');
-              var response = await http.delete(
-                  uri,
-                  headers: {
-                    'x-access-token': token
-                  }
-              );
-              if(response.statusCode == 200) {
-                //clear all shared preference
-                await prefs.clear();
-                Navigator.popUntil(context, (route) => route.isFirst);
-                Navigator.pushNamed(context, '/login');
-              }else{
-                print('Error');
-                print(response.statusCode);
-                showDialog(context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text(
-                            'Error',
-                            style: TextStyle(
-                                color: Colors.red
-                            )
-                        ),
-                        content: Text(
-                            'An error occured while logging out',
-                            style: TextStyle(
-                                color: Colors.black
-                            )
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                                'Close',
-                                style: TextStyle(
-                                    color: Colors.blue
-                                )
-                            ),
-                          )
-                        ],
-                      );
-                    }
-                );
-              }
-            },
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
+            }
           ),
           //
         ],
@@ -201,55 +152,10 @@ class VolunteerAppplicantDrawer extends StatelessWidget {
           ),
           ListTile(
             title: AppFonts.normal('Logout', Colors.red),
-            onTap: () async {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              token=prefs.getString('token');
-              final Uri uri = Uri.parse('https://madbackend-production.up.railway.app/api/auth/signout');
-              var response = await http.delete(
-                uri,
-                headers: {
-                  'x-access-token': token
-                }
-              );
-              if(response.statusCode == 200) {
-                await prefs.clear();
-                Navigator.popUntil(context, (route) => route.isFirst);
-                Navigator.pushNamed(context, '/login');
-              }else{
-                showDialog(context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text(
-                          'Error',
-                          style: TextStyle(
-                            color: Colors.red
-                          )
-                        ),
-                        content: Text(
-                          'An error occured while logging out',
-                          style: TextStyle(
-                            color: Colors.black
-                          )
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                              'Close',
-                              style: TextStyle(
-                                color: Colors.blue
-                              )
-                            ),
-                          )
-                        ],
-                      );
-                    }
-                );
-              }
-            },
-          ),
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
+            }
+          )
           //
         ],
       ),

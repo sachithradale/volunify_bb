@@ -14,10 +14,9 @@ class _EventListHorizontalState extends State<EventListHorizontal> {
       .from('project')
       .select('project_id,description,location')
       .asStream();
-
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
       child: StreamBuilder<List<Map<String, dynamic>>>(
         stream: _orgStream,
         builder: (context, snapshot) {
@@ -29,26 +28,33 @@ class _EventListHorizontalState extends State<EventListHorizontal> {
           }
           final data = snapshot.data!;
 
-          return ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-              final project = data[index];
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    color: Colors.grey[200],
-                  ),
-                  padding: const EdgeInsets.all(16.0),
-                  child: EventCardVol(
-                      imageUrl: 'assets/images/placeholder.jpg',
-                      title: project['description'],
-                      location: project['location']),
-                ),
-              );
+          return GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/EventPage');
             },
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                final project = data[index];
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      color: Colors.grey[200],
+                    ),
+                    padding: const EdgeInsets.all(16.0),
+                    child: EventCardVol(
+                        imageUrl: index % 2 == 0
+                            ? 'assets/images/one.png'
+                            : 'assets/images/two.png',
+                        title: project['description'],
+                        location: project['location']),
+                  ),
+                );
+              },
+            ),
           );
         },
       ),

@@ -18,6 +18,7 @@ class _WrapperState extends State<Wrapper> {
   Future<void> _redirect() async {
     await Future.delayed(Duration.zero);
     final session = supabase.auth.currentSession;
+    print(session);
 
     if (!mounted) return;
 

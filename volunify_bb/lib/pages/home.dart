@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import '../components/home/EventDataListHorizontal.dart';
 import 'common/fonts.dart';
 import 'common/header.dart';
 
@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             SizedBox(height: 20,),
@@ -73,8 +73,11 @@ class _HomeState extends State<Home> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.filter_frames_outlined, size: 30,),
-                              Text('125'),
+                              Icon(
+                                Icons.filter_frames_outlined, size: 30,
+                                color: Colors.blueAccent,
+                              ),
+                              Text('12'),
                               Text('Projects'),
                             ],
                           ),
@@ -88,8 +91,9 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.person, size: 30,),
-                              Text('125'),
+                              Icon(Icons.person, size: 30,
+                              color: Colors.amber,),
+                              Text('2'),
                               Padding(
                                 padding: const EdgeInsets.all(5.0),
                                 child: Text('Volunteers'),
@@ -105,8 +109,9 @@ class _HomeState extends State<Home> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.monetization_on_outlined, size: 30,),
-                              Text('125'),
+                              Icon(Icons.monetization_on_outlined, size: 30,
+                              color: Colors.green,),
+                              Text('5'),
                               Text('Donations'),
                             ],
                           ),
@@ -120,15 +125,90 @@ class _HomeState extends State<Home> {
                   ),
                   //horizontal list view with images
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    height: 200,
-                    width: double.infinity,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 5,
-                      itemBuilder: (context, index){
-                        return Container(child:Text('d'));
-                      },
+                    height: MediaQuery.of(context).size.width * 0.6,
+                    child: EventListHorizontal(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: AppFonts.subtitle('Organizations', Colors.black),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              RawMaterialButton(
+                                onPressed: () {},
+                                fillColor: Colors.grey,
+                                shape: CircleBorder(),
+                                elevation: 4,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text('Organization 1', style: TextStyle(color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              RawMaterialButton(
+                                onPressed: () {},
+                                fillColor: Colors.grey,
+                                shape: CircleBorder(),
+                                elevation: 2,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text('Organization 2', style: TextStyle(color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              RawMaterialButton(
+                                onPressed: () {},
+                                fillColor: Colors.grey,
+                                shape: CircleBorder(),
+                                elevation: 2,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text('Organization 3', style: TextStyle(color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              RawMaterialButton(
+                                onPressed: () {},
+                                fillColor: Colors.grey,
+                                shape: CircleBorder(),
+                                elevation: 2,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text('Organization 4', style: TextStyle(color: Colors.black),),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

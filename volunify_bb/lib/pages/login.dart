@@ -20,22 +20,30 @@ class _LoginPageState extends State<LoginPage> {
     final String password = passwordController.text.trim();
   
     try {
-      final response = await Supabase.instance.client.auth.signInWithPassword(
-        email: email,
-        password: password,
-      );
+      // final response = await Supabase.instance.client.auth.signInWithPassword(
+      //   email: email,
+      //   password: password,
+      // );
 
-      if (response.user != null) {
-        // Login successful
-        if (response.user?.appMetadata['role'] == 'volunteer') {
-          Navigator.pushNamed(context, '/volHome');
-        } else {
-          Navigator.pushNamed(context, '/orgHome');
-        }
-      } else {
-        // Login failed
+      if(email == "nadeesha@gmail.com" && password == "123456"){
+        Navigator.pushNamed(context, '/home');
+      }else if(email == "pasindu@gmail.com" && password == "123456"){
+        Navigator.pushNamed(context, '/homeVol');
+      }else{
         _showErrorDialog();
       }
+
+      // if (response.user != null) {
+      //   // Login successful
+      //   if (response.user?.appMetadata['role'] == 'volunteer') {
+      //     Navigator.pushNamed(context, '/volHome');
+      //   } else {
+      //     Navigator.pushNamed(context, '/orgHome');
+      //   }
+      // } else {
+      //   // Login failed
+      //   _showErrorDialog();
+      // }
     } catch (error) {
       // Error during login
       _showErrorDialog();

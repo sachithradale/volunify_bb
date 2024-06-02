@@ -386,6 +386,7 @@ class _CreateEventState extends State<CreateEvent> {
                             Button.formButtton('Create',
                                     () =>
                                 {
+                                  Navigator.pushNamed(context, '/home')
                                   //create event
                                 }, MediaQuery
                                     .of(context)
